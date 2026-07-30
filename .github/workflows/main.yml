@@ -21,6 +21,10 @@ jobs:
         run: |
           pip install pytest
 
+      # ✅ ADD THIS STEP HERE
+      - name: Set PYTHONPATH
+        run: echo "PYTHONPATH=$PWD" >> $GITHUB_ENV
+
       - name: Run tests
         run: |
-          PYTHONPATH=. pytest task.folder/tests
+          pytest task.folder/tests
